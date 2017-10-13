@@ -48,9 +48,14 @@ public class SearchItem extends HttpServlet {
 		String term = request.getParameter("term");
 		List<Item> items = conn.searchItems(userId, lat, lon, term);
 		List<JSONObject> list = new ArrayList<>();
+		Set<String> favorite = conn.getFavoriteItemIds(userId);
 		try {
 			for (Item item : items) {
 				JSONObject obj = item.toJSONObject();
+				// Check if this is a favorite one.
+		        // This field is required by frontend to correctly display favorite items.
+		        obj.put("favorite", favorite.contains(item.getItemId()));
+
 				list.add(obj);
 			}
 		} catch (Exception e) {
