@@ -10,15 +10,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import db.DBConnection;
 import entity.Item;
 import entity.Item.ItemBuilder;
 import external.YelpAPI;
 
 // This is a singleton pattern.
-public class MySQLConnection {
+public class MySQLConnection implements DBConnection {
 	private static MySQLConnection instance;
 
-	public static MySQLConnection getInstance() {
+	public static MySQLConnection getInstance()  {
 		if (instance == null) {
 			instance = new MySQLConnection();
 		}

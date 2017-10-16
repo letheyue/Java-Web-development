@@ -15,6 +15,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import db.DBConnection;
+import db.DBConnectionFactory;
 import db.mysql.MySQLConnection;
 import entity.Item;
 
@@ -24,7 +26,9 @@ import entity.Item;
 @WebServlet("/history")
 public class ItemHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private MySQLConnection conn = MySQLConnection.getInstance();
+	//private MySQLConnection conn = MySQLConnection.getInstance();
+	private DBConnection conn = DBConnectionFactory.getDBConnection();
+
        
     /**
      * @see HttpServlet#HttpServlet()

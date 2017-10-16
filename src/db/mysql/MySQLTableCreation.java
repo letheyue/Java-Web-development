@@ -52,7 +52,7 @@ public class MySQLTableCreation {
 					+ " PRIMARY KEY ( item_id ))";
 			stmt.executeUpdate(sql);
 
-			// Student question: why use a combine key here?
+			// combine key
 			sql = "CREATE TABLE categories " + "(item_id VARCHAR(255) NOT NULL, " + " category VARCHAR(255), "
 					+ " PRIMARY KEY ( item_id, category), " + "FOREIGN KEY (item_id) REFERENCES items(item_id))";
 			stmt.executeUpdate(sql);

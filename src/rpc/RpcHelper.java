@@ -53,6 +53,7 @@ public class RpcHelper {
 			out.print(array);
 			out.flush();
 			out.close();
+			System.out.println("Response : " + array);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
